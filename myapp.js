@@ -1,11 +1,21 @@
 function DomLoaded() {
-	alert("Hi Archana, this app dedicated to u")
-	document.addEventListener('deviceready', phonegapLoaded,false);
+	document.addEventListener('deviceready',phonegapLoaded,false);
 }
 
 function phonegapLoaded() {
+}
+
+function alert() {
+	navigator.notification.alert(
+		'Hello world',
+		dismissed,
+		'Archana',
+		'Done'
+	);
+}
+
+function dismissed() {
 	$(function() {
-		$("body").append("<h1>Device is Ready</h1>");
+		$("body").append("<h1>Dismissed</h1>");
 	});
-	
 }
