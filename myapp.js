@@ -1,6 +1,6 @@
 function DomLoaded() {
 	alert("Hi Archana, this app dedicated to u")
-	document.addEventListener('deviceready',phonegapLoaded,false);
+	document.addEventListener('deviceready', phonegapLoaded,false);
 }
 
 function phonegapLoaded() {
