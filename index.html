@@ -1,53 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>FileWriter Example</title>
-
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-    }
-
-    function gotFS(fileSystem) {
-        fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
-    }
-
-    function gotFileEntry(fileEntry) {
-        fileEntry.createWriter(gotFileWriter, fail);
-    }
-
-    function gotFileWriter(writer) {
-        writer.onwriteend = function(evt) {
-            console.log("contents of file now 'some sample text'");
-            writer.truncate(11);  
-            writer.onwriteend = function(evt) {
-                console.log("contents of file now 'some sample'");
-                writer.seek(4);
-                writer.write(" different text");
-                writer.onwriteend = function(evt){
-                    console.log("contents of file now 'some different text'");
-                }
-            };
-        };
-        writer.write("some sample text");
-    }
-
-    function fail(error) {
-        console.log(error.code);
-    }
-
-    </script>
-  </head>
-  <body>
-    <h1>Example</h1>
-    <p>Write File</p>
-  </body>
-</html>
+<!doctype html>
++<!DOCTYPE html>
+ <html>
+-<head>
+-  <title>Keep it Simple Sily</title>
+-  <script src="phonegap.1.3.0.js"></script>
+-  <script src="jquery.js"></script>
+-  <script src="jquery.mobile-1.3.1.min.js"></script>
+-  <script src="myapp.js"></script>
+-</head>
+-<body onload="DomLoaded();">
+-  <a href="#" onclick="alert(); return false"><h1>Alert</h1></a>
+-  <a href="#" onclick="demo1(); return false;"><h1>Confirmation</h1></a>
+-  <a href="#" onclick="beep(); return false"><h1>Beep</h1></a>
+-  <a href="#" onclick="vibrate(); return false;"><h1>Vibrate</h1></a>
+-  
+-  <div id="deviceInfo">Loading device Information ...
+-  </div>
+-</body>
+-</html>
